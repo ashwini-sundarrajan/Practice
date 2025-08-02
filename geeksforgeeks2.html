@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 2</title>
+</head>
+<body>
+    <!-- Experiment with HTML5 semantic elements like header, footer, article, section, and aside to structure a webpage -->
+    <header>
+        <figure>
+            <img src="geeks.jpeg" alt="Geeksforgeeks cover picture">
+            <figcaption>GeeksforGeeks</figcaption>
+        </figure>
+        <h1>Welcome to GeeksforGeeks</h1>
+    </header>
+
+    <section>
+        <nav>
+            <h1>Programs available</h1>
+            <a href="https://www.geeksforgeeks.org/batch/frontend-interview-questions?tab=Chapters">Front end Interview preperation questions</a>
+            <a href="https://www.geeksforgeeks.org/batch/java-foundation-2?tab=Chapters">JAVA</a>
+            <a href="https://www.geeksforgeeks.org/batch/python-foundation-2?tab=Chapters">python</a>
+            <a href="https://www.geeksforgeeks.org/batch/js-yt?tab=Chapters">Full Stack Development</a>
+        </nav>
+    </section>
+    <br>
+    <details>
+        <summary>Paid programs available</summary>
+        <ul>
+            <li>Data structures and Algorithms</li>
+            <li>SQL</li>
+            <li>Mongo DB</li>
+            <li>React JS</li>
+        </ul>
+    </details>
+    <article>
+        <h1>About GeeksforGeeks</h1>
+        <p>GeeksforGeeks is an Indian educational technology company and online platform providing resources for computer science and programming. Founded in 2009 by Sandeep Jain, it has grown from a blog into a prominent platform for technical education.</p>
+    </article>
+    <footer>
+        <p>All content, including articles, illustrations, videos, and tutorials, available on GeeksforGeeks is the intellectual property of GeeksforGeeks unless otherwise stated. Unauthorized use, reproduction, or distribution of any content without explicit permission is strictly prohibited.
+            © GeeksforGeeks. All rights reserved. GeeksforGeeks and the GeeksforGeeks logo are trademarks of GeeksforGeeks Foundation.</p>
+        <a href="https://www.instagram.com/geeks_for_geeks/">Geeks for Geeks- instagram</a>
+    </footer>
+
+    <!--Implement a table to display student grades with columns for subject marks, total and average-->
+    <form id="marks">
+        Enter Tamil mark :
+        <input type="text" id="sub1" name="sub1"><br>
+        Enter English mark :
+        <input type="text" name="sub2" id="sub2"><br>
+        Enter Maths mark :
+        <input type="text" name="sub3" id="sub3"><br>
+        Enter Science mark :
+        <input type="text" name="sub4" id="sub4"><br>
+        Enter Social Science mark :
+        <input type="text" name="sub5" id="sub5"><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+    <table id="mtable" border="1">
+        <thead>
+            <tr>
+                <th>Tamil</th>
+                <th>English</th>
+                <th>Maths</th>
+                <th>science</th>
+                <th>social Science</th>
+                <th>Total</th>
+                <th>Average</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+
+        </tbody>
+    </table>
+
+    <script>
+        const form= document.getElementById('marks');
+        const tableh= document.getElementById('tablehead')
+        const table= document.getElementById('tablebody');
+        form.addEventListener('submit', function(event)
+        {
+            event.preventDefault();
+            const tamil = parseInt(document.getElementById('sub1').value)||0;
+            const english = parseInt(document.getElementById('sub2').value)||0;
+            const maths = parseInt(document.getElementById('sub3').value)||0;
+            const science = parseInt(document.getElementById('sub4').value)||0;
+            const social = parseInt(document.getElementById('sub5').value)||0;
+            const total= tamil+english+maths+science+social;
+            const average= total/5;
+
+            const newRow= document.createElement('tr');
+            newRow.innerHTML= `<td>${tamil}</td>
+                               <td>${english}</td>
+                               <td>${maths}</td>
+                               <td>${science}</td>
+                               <td>${social}</td>
+                               <td>${total}</td>
+                               <td>${average}</td>`;
+            table.appendChild(newRow);
+            form.reset();
+            
+        });
+    </script>
+</body>
+</html>
